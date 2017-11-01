@@ -1,0 +1,33 @@
+.wrapper
+  .head-bar チャットグループが作成されました。
+  .side-bar
+    .header
+      .header__name seo
+      %ul.header__lists
+        %li
+          %a.fa.fa-cog{ href:"https://tech-camp.in/expert"}
+        %li
+          %a.fa.fa-pencil-square-o{ href:"https://tech-camp.in/expert"}
+    .groups
+      .groups__name sample
+      .groups__message Good bye world
+  .chat
+    .header
+      .left-header
+        .group
+          .group__name sample
+          .group__members Member:
+          %ul
+            %li seo
+            %li neko
+      .right-header
+        %a.edit-bottun{ href:"https://tech-camp.in/expert"} Edit
+    .messages
+      =render "message"
+    .form
+      %form
+        %input{ type: "text", placeholder: "type a message", class: "form__message"}
+        %label
+          %i{ class: "fa fa-picture-o"}
+          %input{ type: "file", name: "file", style: "display:none"}
+        %input{ type: "submit", value: "Send", class: "form__submit"}
