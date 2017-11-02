@@ -2,12 +2,14 @@
   .head-bar チャットグループが作成されました。
   .side-bar
     .header
-      .header__name seo
+      .header__name
+        = current_user.name
       %ul.header__lists
         %li
-          %a.fa.fa-cog{ href:"https://tech-camp.in/expert"}
+          =link_to edit_user_path(current_user.id) do
+            %i.fa.fa-cog
         %li
-          %a.fa.fa-pencil-square-o{ href:"https://tech-camp.in/expert"}
+          %i.fa.fa-pencil-square-o{ href:"https://tech-camp.in/expert"}
     .groups
       .groups__name sample
       .groups__message Good bye world
