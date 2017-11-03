@@ -5,13 +5,17 @@
         = current_user.name
       %ul.header__lists
         %li
-          =link_to edit_user_path(current_user) do
+          = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
         %li
-          %i.fa.fa-pencil-square-o{ href:"https://tech-camp.in/expert"}
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
     .groups
-      .groups__name sample
-      .groups__message Good bye world
+      - current_user.members.each do |member|
+        .groups__name
+          = member.group.name
+        .groups__message
+          まだメッセージはありません。
   .chat
     .header
       .left-header
@@ -22,13 +26,13 @@
             %li seo
             %li neko
       .right-header
-        %a.edit-bottun{ href:"https://tech-camp.in/expert"} Edit
+        %a.edit-bottun{ href:"https://tech-camp.in/expert" } Edit
     .messages
-      =render "message"
+      = render "message"
     .form
       %form
-        %input{ type: "text", placeholder: "type a message", class: "form__message"}
+        %input{ type: "text", placeholder: "type a message", class: "form__message" }
         %label
           %i{ class: "fa fa-picture-o"}
-          %input{ type: "file", name: "file", style: "display:none"}
-        %input{ type: "submit", value: "Send", class: "form__submit"}
+          %input{ type: "file", name: "file", style: "display:none" }
+        %input{ type: "submit", value: "Send", class: "form__submit" }
