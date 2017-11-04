@@ -4,7 +4,7 @@ ja:
     password: パスワード
     group_id: グループ名
     user: ユーザー
-    name: 名前
+    name: グループ名
   date:
     abbr_day_names:
     - 日
