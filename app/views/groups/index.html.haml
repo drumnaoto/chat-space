@@ -1,0 +1,18 @@
+.wrapper
+  .side-bar
+    .header
+      .header__name
+        = current_user.name
+      %ul.header__lists
+        %li
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+        %li
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+    .groups
+      - current_user.members.each do |member|
+        .groups__name
+          = member.group.name
+        .groups__message
+          まだメッセージはありません。
