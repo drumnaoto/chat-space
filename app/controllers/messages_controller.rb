@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path
     else
+      render :index
     end
   end
 
