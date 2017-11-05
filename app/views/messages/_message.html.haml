@@ -1,8 +1,9 @@
 .message
-  .user-name seo
-  .date 2016/09/21 06:16:55
-  %p.message Hello world!
-.message
-  .user-name neko
-  .date 2016/09/22 06:16:55
-  %p.message Good bye world!
+  - @messages.each do |message|
+    .message
+      .upper-message
+        .user-name= message.user.name
+        .date= message.created_at
+      .lower-message
+        %p.message= message.body
+        .image= image_tag message.image.thumb
