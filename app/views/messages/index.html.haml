@@ -20,19 +20,22 @@
     .header
       .left-header
         .group
-          .group__name sample
+          .group__name
+            = @group.name
           .group__members Member:
           %ul
-            %li seo
-            %li neko
+            - @group.members.each do |member|
+              %li
+                = member.user.name
       .right-header
-        %a.edit-bottun{ href:"https://tech-camp.in/expert" } Edit
+        = link_to "Edit", edit_group_path(@group), class: "edit-bottun"
     .messages
       = render "message"
     .form
-      %form
-        %input{ type: "text", placeholder: "type a message", class: "form__message" }
-        %label
-          %i{ class: "fa fa-picture-o"}
-          %input{ type: "file", name: "file", style: "display:none" }
-        %input{ type: "submit", value: "Send", class: "form__submit" }
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, placeholder: "type a message", class: "form__message"
+        = f.label :image do
+          %i.fa.fa-picture-o
+          = f.file_field :image, style: "display:none"
+          = f.hidden_field :image_cache
+        = f.submit "Send", class: "form__submit"
