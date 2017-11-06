@@ -11,11 +11,15 @@
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
     .groups
-      - current_user.members.each do |member|
-        .groups__name
-          = member.group.name
-        .groups__message
-          まだメッセージはありません。
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .groups__name
+            = group.name
+          .groups__message
+            - if group.messages.present?
+              = group.messages.last.body
+            - else
+              まだメッセージはありません。
   .chat
     .header
       .left-header
@@ -24,9 +28,9 @@
             = @group.name
           .group__members Member:
           %ul
-            - @group.members.each do |member|
+            - @group.users.each do |user|
               %li
-                = member.user.name
+                = user.name
       .right-header
         = link_to "Edit", edit_group_path(@group), class: "edit-bottun"
     .messages
