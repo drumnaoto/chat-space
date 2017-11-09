@@ -65,3 +65,8 @@ gem 'pry-rails'
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+group :test do
+  gem 'faker'
+end
+
