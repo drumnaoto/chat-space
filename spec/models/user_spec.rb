@@ -39,16 +39,16 @@ describe User do
 
     # 重複したnameが存在する場合登録できないこと
     it "is invalid with a duplicate name" do
-      user = create(:user)
-      another_user = build(:user, email: "gucci@gmail.com")
+      user = create(:user, name: "naoto")
+      another_user = build(:user, name: "naoto")
       another_user.valid?
       expect(another_user.errors[:name]).to include("はすでに存在します。")
     end
 
     # 重複したemailが存在する場合登録できないこと
     it "is invalid with a duplicate email address" do
-      user = create(:user)
-      another_user = build(:user, name: "gucci")
+      user = create(:user, email: "gucci@gmail.com")
+      another_user = build(:user, email: "gucci@gmail.com")
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します。")
     end
