@@ -64,6 +64,8 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'rails-controller-testing'
+
 group :test do
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'faker'
