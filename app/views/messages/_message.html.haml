@@ -1,9 +1,14 @@
-.message
+#message
   - @messages.each do |message|
     .message
       .upper-message
         .user-name= message.user.name
         .date= message.created_at
       .lower-message
-        %p.message= message.body
-        .image= image_tag message.image.thumb
+        -if message.image.blank?
+          %p.message= message.body
+        -elsif message.body.blank?
+          .image= image_tag message.image.thumb
+        -else
+          %p.message= message.body
+          .image= image_tag message.image.thumb
