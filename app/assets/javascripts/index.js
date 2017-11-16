@@ -50,6 +50,8 @@ $(document).on('turbolinks:load', function () {
       .fail(function(){
         alert("ユーザー検索に失敗しました");
       });
+    }else {
+      $("#user-search-result").empty();
     };
   });
 
