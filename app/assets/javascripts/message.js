@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   function buildHTML(message){
     var p = (message.body) ? `<p class="message"> ${ message.body } </p>` : "";
     var i = (message.image.url) ? `<div class="image"> <img src = "${ message.image.url }" width="200" %> </div>` : "";
@@ -34,7 +34,7 @@ $(function () {
 
     .done(function(message){
       var html = buildHTML(message);
-      $('#message').append(html);
+      $('.messages').append(html);
       $('.form__message').val('');
       $('.form__image').val('');
       $('html, body').animate({scrollTop: $('.messages')[0].scrollHeight}, 'normal');
