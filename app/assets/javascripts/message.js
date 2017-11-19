@@ -1,17 +1,17 @@
 $(document).on('turbolinks:load', function () {
   function buildHTML(message){
-    var p = (message.body) ? '<p class="message">'+ message.body +'</p>' : "";
-    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+ message.image.url +'" width="200" %>'+'</div>': "";
-    var html = '<div class= "message">'+
-                  '<div class="upper-message">'+
-                    '<div class="user-name">'+ message.user_name +'</div>'+
-                    '<div class= "date">'+ message.created_at +'</div>'+
-                  '</div>'+
-                  '<div class="lower-message">'+
-                    p +
-                    i +
-                  '</div>'+
-                '</div>'
+    var p = (message.body) ? `<p class="message">${message.body}</p>` : "";
+    var i = (message.image.url) ? `<div class="image"><img src = "${message.image.url}" width="200" %></div>` : "";
+    var html = `<div class= "message">
+                  <div class="upper-message">
+                    <div class="user-name">${message.user_name}</div>
+                    <div class= "date">${message.created_at}</div>
+                  </div>
+                  <div class="lower-message">
+                    ${p}
+                    ${i}
+                  </div>
+                </div>`;
     return html;
   }
   $("#new_message").on("submit", function(e) {
@@ -45,18 +45,19 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function () {
 
   function buildHTML(message) {
-    var p = (message.body) ? '<p class="message">'+ message.body +'</p>' : "";
-    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+ message.image.url +'" width="200" %>'+'</div>': "";
-    var html = '<div class= "message">'+
-                  '<div class="upper-message">'+
-                    '<div class="user-name">'+ message.user_name +'</div>'+
-                    '<div class= "date">'+ message.created_at +'</div>'+
-                  '</div>'+
-                  '<div class="lower-message">'+
-                    p +
-                    i +
-                  '</div>'+
-                '</div>'
+    var p = (message.body) ? `<p class="message">${message.body}</p>` : "";
+    var i = (message.image.url) ? `<div class="image"><img src = "${message.image.url}" width="200" %></div>` : "";
+    var html = `
+      <div class="message" data-message-id="${message.id}">
+        <div class="upper-message">
+          <div class="user-name">${message.name}</div>
+          <div class="date">${message.date}</div>
+          <div class="lower-message">
+            ${p}
+            ${i}
+          </div>
+        </div>
+      </div>`;
     return html
   }
   setInterval(update, 5000);
