@@ -1,15 +1,15 @@
 $(document).on('turbolinks:load', function () {
   function buildHTML(message){
-    var p = (message.body) ? '<p class="message">'+message.body+'</p>' : "";
-    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+message.image.url+'" width="200" %>'+'</div>': "";
+    var p = (message.body) ? '<p class="message">'+ message.body +'</p>' : "";
+    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+ message.image.url +'" width="200" %>'+'</div>': "";
     var html = '<div class= "message">'+
                   '<div class="upper-message">'+
-                    '<div class="user-name">'+message.user_name+'</div>'+
-                    '<div class= "date">'+message.created_at+'</div>'+
+                    '<div class="user-name">'+ message.user_name +'</div>'+
+                    '<div class= "date">'+ message.created_at +'</div>'+
                   '</div>'+
                   '<div class="lower-message">'+
-                    p+
-                    i+
+                    p +
+                    i +
                   '</div>'+
                 '</div>'
     return html;
@@ -45,16 +45,16 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function () {
 
   function buildHTML(message) {
-    var p = (message.body) ? '<p class="message">'+message.body+'</p>' : "";
-    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+message.image.url+'" width="200" %>'+'</div>': "";
+    var p = (message.body) ? '<p class="message">'+ message.body +'</p>' : "";
+    var i = (message.image.url) ? '<div class="image">'+'<img src = "'+ message.image.url +'" width="200" %>'+'</div>': "";
     var html = '<div class= "message">'+
                   '<div class="upper-message">'+
-                    '<div class="user-name">'+message.user_name+'</div>'+
-                    '<div class= "date">'+message.created_at+'</div>'+
+                    '<div class="user-name">'+ message.user_name +'</div>'+
+                    '<div class= "date">'+ message.created_at +'</div>'+
                   '</div>'+
                   '<div class="lower-message">'+
-                    p+
-                    i+
+                    p +
+                    i +
                   '</div>'+
                 '</div>'
     return html
