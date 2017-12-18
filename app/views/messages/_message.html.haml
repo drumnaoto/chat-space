@@ -1,6 +1,6 @@
 #message
   - @messages.each do |message|
-    .message
+    .message{data:{message:{id: message.id }}}
       .upper-message
         .user-name= message.user.name
         .date= message.created_at
