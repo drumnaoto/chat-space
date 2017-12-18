@@ -69,12 +69,15 @@ $(document).on('turbolinks:load', function () {
         dataType: 'json'
       })
       .done(function(messages) {
+        var id = $('.message').last().data('messageId');
         var insertHTML = '';
         messages.forEach(function(message) {
-          insertHTML += buildHTML(message);
+          if (message.id > id) {
+            insertHTML += buildHTML(message);
+            $('.messages').append(insertHTML);
+            $('html, body').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
+          }
         });
-        $(".messages").html(insertHTML);
-        $('html, body').animate({scrollTop: $('.messages')[0].scrollHeight}, 2000);
       })
       .fail(function(messages) {
         alert('自動更新に失敗しました');
